@@ -6,7 +6,7 @@
 	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -63,9 +63,10 @@
 
  	# Rebase
 	rom = "!sh -c git rebase origin/master"
-	rbi = "!sh -c 'git rebase -i @~$1' -"
+    rbi = "!sh -c 'VISUAL=vim;git rebase -i @~$1' -"
 	rbc = "!sh -c 'git rebase --continue' -"
 	rba = "!sh -c 'git rebase --abort' -"
+    prom = "!sh -c 'git pull --rebase origin master' -"
 
  	who = shortlog -s --no-merges
  	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
