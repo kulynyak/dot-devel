@@ -11,6 +11,7 @@
 [core]
   excludesfile = /Users/ra/.gitignore_global
   autocrlf = input
+	editor = mvim -f --nomru -c \"au VimLeave * !open -a iTerm\"
 
 [push]
   default = simple
@@ -61,7 +62,7 @@
 
   # Rebase
   rom = "!sh -c git rebase origin/master"
-  rbi = "!sh -c 'VISUAL=vim;git rebase -i @~$1' -"
+  rbi = "!sh -c 'git rebase -i @~$1' -"
   rbc = "!sh -c 'git rebase --continue' -"
   rba = "!sh -c 'git rebase --abort' -"
   prom = "!sh -c 'git pull --rebase origin master' -"
