@@ -1,6 +1,6 @@
 [user]
-  name = Andriy Kulynyak
-  email = kulynyak@gmail.com
+	name = Andriy Kulynyak
+	email = kulynyak@gmail.com
 
 [diff]
   tool = default-difftool  
@@ -9,9 +9,9 @@
   cmd = "~/.vim/mvimgitdiff.sh " $LOCAL $REMOTE
 
 [core]
-  excludesfile = /Users/ra/.gitignore_global
+	excludesfile = /Users/ra/.gitignore_global
   autocrlf = input
-	editor = mvim -f --nomru -c \"au VimLeave * !open -a iTerm\"
+	editor = atom --wait
 
 [push]
   default = simple
@@ -116,3 +116,7 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/ra/.stCommitMsg
+[merge]
+	conflictstyle = diff3

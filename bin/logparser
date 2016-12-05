@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+filepath=${(%):-%N}
+spath=${filepath%/*}
+java -jar $spath/logparser.jar $*
