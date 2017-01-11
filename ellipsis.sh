@@ -15,7 +15,7 @@ pkg.install() {
 
 osx() {
 	brew cask install java
-	brew cask install diffmerge
+	brew cask install meld
 	brew cask install sourcetree
 	brew install maven
 	brew install jq
