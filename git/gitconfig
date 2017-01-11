@@ -3,10 +3,24 @@
 	email = kulynyak@gmail.com
 
 [diff]
-  tool = default-difftool  
+  tool = meld
 
-[difftool "default-difftool"]
-  cmd = "~/.vim/mvimgitdiff.sh " $LOCAL $REMOTE
+[difftool]
+  prompt = false
+
+[difftool "meld"]
+	trustExitCode = true
+	cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+
+[merge]
+	tool = meld
+
+[mergetool]
+	prompt = false
+
+[mergetool "meld"]
+	trustExitCode = true
+	cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
 
 [core]
 	excludesfile = /Users/ra/.gitignore_global
@@ -65,11 +79,11 @@
   rbi = "!sh -c 'git rebase -i @~$1' -"
   rbc = "!sh -c 'git rebase --continue' -"
   rba = "!sh -c 'git rebase --abort' -"
-  prom = "!sh -c 'git pull --rebase origin master' -"
+
   who = shortlog -s --no-merges
   whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
   abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager show $commit; done' -"
-  prom = "!sh -c 'git fetch && git pull --rebase origin master'"
+  prom = "!sh -c 'git fetch && git pull --rebase origin master' -"
   cam = commit -a -m
 
   # pom = push origin master (not recommended for use)
@@ -110,13 +124,6 @@
   clean = git lfs clean %f
   smudge = git lfs smudge %f
   required = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+
 [commit]
 	template = /Users/ra/.stCommitMsg
-[merge]
-	conflictstyle = diff3
