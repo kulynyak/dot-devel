@@ -3,7 +3,7 @@
 	email = kulynyak@gmail.com
 
 [diff]
-  tool = meld
+	tool = meld
 
 [difftool]
   prompt = false
@@ -25,7 +25,7 @@
 [core]
 	excludesfile = /Users/ra/.gitignore_global
   autocrlf = input
-	editor = atom --wait
+	editor = subl -n -w
 
 [push]
   default = simple
