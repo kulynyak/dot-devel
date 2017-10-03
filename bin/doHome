@@ -1,0 +1,9 @@
+#! /usr/bin/env zsh
+
+dockutil --remove 'Slack' --no-restart
+# dockutil --remove 'IntelliJ IDEA' --no-restart
+dockutil --remove 'IntelliJ IDEA 2017.3 EAP' --no-restart
+dockutil --remove 'Opera' --no-restart
+# dockutil --remove 'Firefox' --no-restart
+dockutil --add '/Applications/Android Studio.app' --position end      #--after 'Launchpad'
+
